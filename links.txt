@@ -1,2 +1,1 @@
-http://192.168.5.111:8080/test
-http://192.168.5.111:8080/mana
+( Wearables OR "Self-management" OR "Randomized Clinical Trial" OR mHealth OR eHealth OR "Telemedicine" OR "Digital Intervention" OR "mobile health" OR ( Smart AND (Device OR Watch OR Ring OR Headband)) OR ((Text OR Smartphone) AND "Based Intervention*") AND ("cardiovascular diseases" OR "cardiovascular disease*" OR "myocardial infarction" OR "myocardial infarction*" OR "heart diseases" OR "heart disease*" OR "heart failure" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")

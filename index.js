@@ -6,6 +6,7 @@ results = {}
 queueSize = 0;
 
 const c = new Crawler({
+    // rateLimit: (Math.floor(Math.random() * 10) + 10) * 1000,
     rateLimit: (Math.floor(Math.random() * 0) + 0) * 1000,
     jQuery: 'cheerio',
     // This will be called for each crawled page
@@ -59,7 +60,7 @@ const c = new Crawler({
                     authors = $(authors).html().toString().replace("/citations", "https://scholar.google.com/citations");
                     authors = authors.replaceAll("\"","'")
                     pubJSON["authors"]=authors
-                    // console.log(authors);
+                    console.log(authors);
 
                     var articleContent = content.children[2]
                     articleContent = $(articleContent).html();
@@ -99,7 +100,7 @@ const c = new Crawler({
     }
 });
 
-const data = fs.readFileSync("links.txt", "utf8");
+const data = fs.readFileSync("linksLocal.txt", "utf8");
 
 // split the contents by new line
 const lines = data.split(/\r?\n/);
