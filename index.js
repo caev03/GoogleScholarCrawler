@@ -1,13 +1,14 @@
 const Crawler = require('crawler');
 var fs = require('fs');
 const cheerio = require('cheerio');
+const { log } = require('console');
 
 results = {}
 queueSize = 0;
 
 const c = new Crawler({
-    // rateLimit: (Math.floor(Math.random() * 10) + 10) * 1000,
-    rateLimit: (Math.floor(Math.random() * 0) + 0) * 1000,
+    rateLimit: (Math.floor(Math.random() * 10) + 5) * 1000,
+    // rateLimit: (Math.floor(Math.random() * 0) + 0) * 1000,
     jQuery: 'cheerio',
     // This will be called for each crawled page
     callback: (error, res, done) => {
@@ -37,7 +38,11 @@ const c = new Crawler({
                 if (!results[pubID]) {
 
                     pubJSON["pubID"] = pubID
-                    pubJSON["searchTerm"] = res.options.searchTerm 
+                    pubJSON["searchTerm"] = []
+                    pubJSON["searchTerm"].push(res.options.searchTerm)
+                    console.log("---------------------------------------------------------------------------------------");
+                    console.log("Extracting: "+res.options.url);
+                    console.log("---------------------------------------------------------------------------------------");
 
                     var link = title.attribs.href
                     pubJSON["link"]=link
@@ -60,7 +65,7 @@ const c = new Crawler({
                     authors = $(authors).html().toString().replace("/citations", "https://scholar.google.com/citations");
                     authors = authors.replaceAll("\"","'")
                     pubJSON["authors"]=authors
-                    console.log(authors);
+                    // console.log(authors);
 
                     var articleContent = content.children[2]
                     articleContent = $(articleContent).html();
@@ -79,7 +84,7 @@ const c = new Crawler({
                         citationsURL = ("" + citations.attribs.href).replace("/scholar", "https://scholar.google.com/scholar")
                         pubJSON["citationsURL"]=citationsURL
                         // console.log(citationURL);
-                        citationsAmount = citations.children[0].data.match(/Citado por (\d*)/)[1]
+                        citationsAmount = citations.children[0].data
                         pubJSON["citationsAmount"]=citationsAmount
                         // console.log(citationsAmount);
 
@@ -100,12 +105,12 @@ const c = new Crawler({
     }
 });
 
-const data = fs.readFileSync("linksLocal.txt", "utf8");
+const data = fs.readFileSync("links.txt", "utf8");
 
 // split the contents by new line
 const lines = data.split(/\r?\n/);
 
-const amountResults = 30
+const amountResults = 100
 
 // print all lines
 lines.forEach((line) => {
@@ -116,11 +121,11 @@ lines.forEach((line) => {
     line = line.replaceAll(")","%29")
 
     for (let jndex = 0; jndex < amountResults; jndex += 10) {
-        // var newLine = "https://scholar.google.com/scholar?start="+jndex+"&q="+line
-        var newLine = line + jndex + ".html"
+        var newLine = "https://scholar.google.com/scholar?start="+jndex+"&q="+line
+        // var newLine = line + jndex + ".html"
         console.log("--------------------------");
         console.log(newLine);
-        c.queue({ uri: newLine, searchTerm: line })
+        c.queue({ uri: newLine, searchTerm: line, url: newLine })
     }
 });
 
