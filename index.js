@@ -7,7 +7,7 @@ results = {}
 queueSize = 0;
 
 const c = new Crawler({
-    rateLimit: (Math.floor(Math.random() * 10) + 5) * 1000,
+    rateLimit: (Math.floor(Math.random() * 10) + 10) * 1000,
     // rateLimit: (Math.floor(Math.random() * 0) + 0) * 1000,
     jQuery: 'cheerio',
     // This will be called for each crawled page
@@ -99,7 +99,7 @@ const c = new Crawler({
 
         }
         if(c.queueSize=1){
-            fs.writeFile("results.json", JSON.stringify(results), (err)=>{})
+            fs.writeFile("resultsV2.json", JSON.stringify(results), (err)=>{})
         }
         done();
     }
