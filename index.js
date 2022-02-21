@@ -21,6 +21,9 @@ const c = new Crawler({
 
             // ? GET all the pubs in the page
             var pubs = $(".gs_r.gs_or.gs_scl")
+            console.log("---------------------------------------------------------------------------------------");
+            console.log("Extracting: "+res.options.url);
+            console.log("---------------------------------------------------------------------------------------");
 
             pubs.each(function (i, elem) {
                 var indexx = 0;
@@ -40,9 +43,6 @@ const c = new Crawler({
                     pubJSON["pubID"] = pubID
                     pubJSON["searchTerm"] = []
                     pubJSON["searchTerm"].push(res.options.searchTerm)
-                    console.log("---------------------------------------------------------------------------------------");
-                    console.log("Extracting: "+res.options.url);
-                    console.log("---------------------------------------------------------------------------------------");
 
                     var link = title.attribs.href
                     pubJSON["link"]=link
@@ -99,13 +99,13 @@ const c = new Crawler({
 
         }
         if(c.queueSize=1){
-            fs.writeFile("resultsV2.json", JSON.stringify(results), (err)=>{})
+            fs.writeFile("resultsV4.json", JSON.stringify(results), (err)=>{})
         }
         done();
     }
 });
 
-const data = fs.readFileSync("links.txt", "utf8");
+const data = fs.readFileSync("links3.txt", "utf8");
 
 // split the contents by new line
 const lines = data.split(/\r?\n/);
@@ -121,7 +121,7 @@ lines.forEach((line) => {
     line = line.replaceAll(")","%29")
 
     for (let jndex = 0; jndex < amountResults; jndex += 10) {
-        var newLine = "https://scholar.google.com/scholar?start="+jndex+"&q="+line
+        var newLine = "https://scholar.google.com/scholar?start="+jndex+"&as_vis=1&as_sdt=0,5&q="+line
         // var newLine = line + jndex + ".html"
         console.log("--------------------------");
         console.log(newLine);
