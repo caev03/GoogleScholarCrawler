@@ -1,0 +1,7 @@
+("Self-Management" AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+("Randomized Clinical Trial" AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+("Telemedicine" AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+("Digital Intervention" AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+(((Smart AND (Device OR Watch OR Ring OR Headband)) OR Wearables) AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+(((Text OR Smartphone) AND "Based Intervention*") AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
+((mobile app*) AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")

@@ -1,2 +1,0 @@
-( "Digital Intervention" AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
-(( Smart AND (Device OR Watch OR Ring OR Headband)) AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")

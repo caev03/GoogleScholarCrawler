@@ -1,2 +1,0 @@
-(((Text OR Smartphone) AND "Based Intervention*") AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
-((mobile app*) AND ( mHealth OR "mobile health")) AND ("cardiovascular disease*" OR "myocardial infarction*" OR "heart disease*" OR "heart failure*" OR "cardiac disease*" OR "cardiac condition*")
