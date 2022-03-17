@@ -99,18 +99,18 @@ const c = new Crawler({
 
         }
         if(c.queueSize=1){
-            fs.writeFile("resultsV5.json", JSON.stringify(results), (err)=>{})
+            fs.writeFile("resultsN3.json", JSON.stringify(results), (err)=>{})
         }
         done();
     }
 });
 
-const data = fs.readFileSync("links3.txt", "utf8");
+const data = fs.readFileSync("linksNudges.txt", "utf8");
 
 // split the contents by new line
 const lines = data.split(/\r?\n/);
 
-const amountResults = 200
+const amountResults = 280
 
 // print all lines
 lines.forEach((line) => {
@@ -120,7 +120,7 @@ lines.forEach((line) => {
     line = line.replaceAll("(","%28")
     line = line.replaceAll(")","%29")
 
-    for (let jndex = 100; jndex < amountResults; jndex += 10) {
+    for (let jndex = 200; jndex < amountResults; jndex += 10) {
         var newLine = "https://scholar.google.com/scholar?start="+jndex+"&as_vis=1&as_sdt=0,5&q="+line
         // var newLine = line + jndex + ".html"
         console.log("--------------------------");
